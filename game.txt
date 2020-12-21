@@ -1,0 +1,84 @@
+import random
+import time
+print('Welcome to the first version of a two-player snake and ladder type game. First person to reach 20 wins. Ladders help you while Python is waiting to push you back.You also get extra chance after climbing a ladder.I as computer will role the dice for both of you. Enough introduction ;) Lets begin  Please enter your names')
+name1=input()
+name2=input()
+dice=[1,2,3,4,5,6]
+print('Drumroll please................')
+ladder='Wow! You found a ladder and have climbed to number'
+snake='Oh my god! Python was waiting for you. It hissed at you and pushed you back to number'
+j=1
+k=1
+chance=0
+while j<20 and k<20:
+  time.sleep(7)
+  if chance%2==0:
+    print('it is the turn of',name1)
+    out=random.choice(dice)
+    print('when ready to roll dice type: yes')
+    check=input()
+    if check=='yes':
+      print('Dice rolled to', out)
+    b=j
+    j=j+out
+    if j==2:
+      j=9
+      print(ladder,j)
+      chance=chance+1
+    elif j==6:
+      j=4
+      print(snake,j)
+    elif j==8:
+      j=12
+      print(ladder,j)
+      chance=chance+1
+    elif j==13:
+      j=5
+      print(snake,j)
+    elif j==14:
+      j=17
+      print(ladder,j)
+      chance=chance+1
+    elif j==20 and k<20:
+      print('Congratulations!!', name1,'You have won the game')
+      break
+    elif j>20 and k<20:
+      j=b
+      print('You just missed a win')
+    else:
+      print('No ladder, no python. You have reached number',j)
+  elif chance%2!=0:
+    print('it is the turn of', name2 )
+    out=random.choice(dice)
+    k=k+out
+    print('when ready to roll dice type: yes')
+    check=input()
+    if check=='yes':
+      print('Dice rolled to', out)
+    if k==2:
+      k=9
+      print(ladder,j)
+      chance=chance+1
+    elif k==6:
+      k=4
+      print(snake,k)
+    elif k==8:
+      k=12
+      print(ladder,k)
+      chance=chance+1
+    elif k==13:
+      k=5
+      print(snake,k)
+    elif k==14:
+      k=17
+      print(ladder,k)
+      chance=chance+1
+    elif k==20 and j<20:
+      print('Congratulations!!', name2,'You have won the game')
+      break  
+    elif k>20 and j<20:
+      k=b
+      print('You just missed a win')
+    else:
+      print('No ladder, no python. You have reached number',j)
+  chance=chance+1
