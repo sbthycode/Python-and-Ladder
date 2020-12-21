@@ -11,6 +11,7 @@ j=1
 k=1
 chance=0
 while j<20 and k<20:
+  print('   [][][][][][][][]')
   time.sleep(7)
   if chance%2==0:
     print('it is the turn of',name1)
@@ -44,7 +45,7 @@ while j<20 and k<20:
       break
     elif j>20 and k<20:
       j=b
-      print('You just missed a win')
+      print(' You need to get to exact 20 to win. Please wait for your next chance.')
     else:
       print('No ladder, no python. You have reached number',j)
   elif chance%2!=0:
@@ -78,7 +79,7 @@ while j<20 and k<20:
       break  
     elif k>20 and j<20:
       k=b
-      print('You just missed a win')
+      print(' You need to get to exact 20 to win. Please wait for your next chance.')
     else:
-      print('No ladder, no python. You have reached number',j)
+      print('No ladder, no python. You have reached number',k)
   chance=chance+1
